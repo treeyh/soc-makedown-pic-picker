@@ -55,7 +55,7 @@ add_shadow_type = True
 
 ## 鸣谢
 
-* https://github.com/firejq/mdpicker-qiniu：借鉴了该项目的图片处理逻辑。
+* [mdpicker-qiniu](https://github.com/firejq/mdpicker-qiniu) ：借鉴了该项目的图片处理逻辑。
 
 ## License
 
