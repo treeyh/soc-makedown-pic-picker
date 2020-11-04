@@ -9,7 +9,7 @@ import pyperclip
 import github_pic_picker
 
 
-_excel_convert_cmd = 'soc-excel-convert --copy=copy '
+_excel_convert_cmd = 'soc-excel-convert -p '
 
 def run():
   global _excel_convert_cmd
