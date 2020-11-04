@@ -11,10 +11,10 @@ import time
 import pyperclip
 
 
-# github授权token
-access_token = 'bd1933696ea231e770959796df29f96f15b826e3'
+# github 授权 token
+access_token = ''
 # github 仓库名
-repo_name = 'soc-md'
+repo_name = ''
 # 路径模板，有下面占位符可选
 # {year}：年，如：2020
 # {month}: 月，如：01
@@ -248,10 +248,8 @@ def run():
             print('upload_pic_fail')
             pyperclip.copy('pic_upload_github_fail')
             return
-        md_url = url.replace('https://api.github.com/repos/'+user_name+'/'+repo_name + '/contents', 'https://cdn.jsdelivr.net/gh/'+user_name+'/' + repo_name)
-        print(md_url)
+        md_url = url.replace('https://api.github.com/repos/'+user_name+'/'+repo_name + '/contents', 'https://cdn.jsdelivr.net/gh/'+user_name+'/' + repo_name)        
         pyperclip.copy('![desc]('+md_url+')')
-        pyperclip.paste()
     except:
         print(traceback.format_exc())
         pyperclip.copy('pic_upload_github_fail')
