@@ -11,7 +11,7 @@ import time
 import pyperclip
 
 
-# github 授权 token
+# github授权token
 access_token = ''
 # github 仓库名
 repo_name = ''
@@ -121,11 +121,11 @@ def file_base64(data):
 def get_user_name_by_github():
     url = 'https://api.github.com/user'
     try:
-        r = requests.get(url, headers = _headers, verify = False)
+        r = requests.get(url, headers = _headers, verify = False)        
         if r.status_code != 200:
             print('github_api_response_status_'+str(r.status_code))
             return None
-    
+        
         data = json.loads(r.text)
         return data['login']
     except Exception as ex:
@@ -201,7 +201,7 @@ def upload_file(file_path, message, user_name, repo, path, file_name):
     }
     data = json.dumps(data)
     req = requests.put(url=url, data=data, headers=_headers, verify = False)
-    req.encoding = "utf-8"
+    req.encoding = "utf-8"    
     re_data = json.loads(req.text)
     if re_data.get('content', None) == None or re_data['content'].get('path', None) == None:
         return None
@@ -244,8 +244,7 @@ def run():
         file_path =format_path(path_format)
 
         url = upload_file(image_path, 'commit '+image_name, user_name, repo_name, file_path, image_name)
-        if url == None:
-            print('upload_pic_fail')
+        if url == None:            
             pyperclip.copy('pic_upload_github_fail')
             return
         md_url = url.replace('https://api.github.com/repos/'+user_name+'/'+repo_name + '/contents', 'https://cdn.jsdelivr.net/gh/'+user_name+'/' + repo_name)        
