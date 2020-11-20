@@ -191,7 +191,7 @@ def upload_file(file_path, message, user_name, repo, path, file_name):
         url += '/' + path
     
     if path[-1:] != '/':
-        url += path + '/'
+        url += '/'
     url += file_name
     file_data = read_file_data(file_path)
     content = file_base64(file_data)
